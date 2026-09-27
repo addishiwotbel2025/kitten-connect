@@ -1,0 +1,19 @@
+# Render Blueprint for the KittenConnect backend.
+# In Render: New + -> Blueprint -> pick your repo, and this configures everything.
+services:
+  - type: web
+    name: kittenconnect-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      # Pin a Python version Render supports (your local 3.14 is too new for it).
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      # Auto-generate a strong secret for signing JWTs.
+      - key: SECRET_KEY
+        generateValue: true
+      # Set this to your Vercel URL after the frontend is deployed.
+      - key: FRONTEND_URL
+        sync: false

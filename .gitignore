@@ -1,0 +1,26 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Database (regenerates itself on first run)
+*.db
+
+# Uploaded files (user content, not source code)
+uploads/
+
+# Environment secrets
+.env
+.env.local
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS / editor
+.DS_Store
+.vscode/
