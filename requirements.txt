@@ -2,6 +2,9 @@ fastapi
 uvicorn[standard]
 sqlalchemy
 passlib[bcrypt]
+# bcrypt 4.1+ breaks passlib 1.7.4 (MissingBackendError -> 500 on signup/login).
+# Pin to the version verified to work locally.
+bcrypt==4.0.1
 python-jose[cryptography]
 python-multipart
 pydantic[email]
